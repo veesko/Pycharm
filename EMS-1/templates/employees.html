@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <h4>This is the employees page</h4>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Add New Employee
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+                <form action = "/employees" method = "post">
+                  <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Employee Name</label>
+                    <div class="col-sm-8">
+                      <input type="text" name = "empName" class="form-control" id="dpname" placeholder="employee">
+                    </div>
+                  </div>
+                 <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Email</label>
+                    <div class="col-sm-8">
+                      <input type="text" name = "email" class="form-control" id="dpname" placeholder="email">
+                    </div>
+                  </div>
+                 <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Phone Num</label>
+                    <div class="col-sm-8">
+                      <input type="text" name = "phonenum" class="form-control" id="dpname" placeholder="Phone Number">
+                    </div>
+                  </div>
+                 <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">National Id</label>
+                    <div class="col-sm-8">
+                      <input type="text" name = "nationalId" class="form-control" id="dpname" placeholder="National ID">
+                    </div>
+                  </div>
+                    <div class="form-group row">
+                        <label class = "col-sm-4 col-form-label"> select Department</label>
+                        <div class = "col-sm-8">
+                           <select name = "department" class="form-control">
+                                {% for each in depts %}
+                                    <option value = "{{ each.id }}">{{ each.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                      </div>
+                 <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Gender</label>
+                    <div class="col-sm-8">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                          <label class="form-check-label">
+                            Male
+                          </label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                          <label class="form-check-label" >
+                            Female
+                          </label>
+                        </div>
+                    </div>
+                  </div>
+                    <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Kra Pin</label>
+                    <div class="col-sm-8">
+                      <input type="text" name = "kra" class="form-control" id="dpname" placeholder="kra">
+                    </div>
+                  </div>
+                    <div class = "form-group row">
+                        <div class="col-sm-8">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+
+                </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+{% endblock %}
